@@ -1,0 +1,32 @@
+# Never include old repository history or private DICOM artifacts
+.git/
+*.dcm
+*.amiedcm
+!synthetic-public-vector/synthetic_128x128_original.dcm
+!synthetic-public-vector/synthetic_128x128.amiedcm
+__pycache__/
+*.pyc
+.venv/
+venv/
+synthetic-public-vector/generated_ci/
+*.sqlite
+*.sqlite3
+*.db
+.env
+*.key
+*_secret*
+*.log
+.DS_Store
+
+# Private research data and experimental evidence
+/data/
+/output/
+/results/
+/CFP9_V2_FINAL_RESULTS/
+**/selected_images.csv
+**/selected_ct_images.csv
+**/final_security_100_images.csv
+**/final_security_100_paper_ready.csv
+**/final_security_100_summary.json
+**/final_security_test_keys.json
+**/R17_*_PRIVATE.*

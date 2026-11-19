@@ -1,0 +1,49 @@
+{
+  "algorithm_version": "AMIE-BakerChen-CFP9-v2",
+  "expected_ciphertext_shape": [
+    128,
+    256
+  ],
+  "expected_dicom_suffix_length": 30,
+  "expected_hashes": {
+    "amie_ciphertext_sha256": "1217bc73e2f23bf25bd62c7d297d912edb751f9b9d884902fb4fcb3bd8438b33",
+    "amie_metadata_canonical_json_sha256": "2bd989cfbd554e01588000d0a8354b3cd6abca5b25690b2724fdf00d527b7564",
+    "dicom_context_canonical_json_sha256": "e8c0fd8d35682ef7166f2feac2d7858c79cead98abc8584c8d3f1be7492575a4",
+    "dicom_prefix_sha256": "0499f7b0c6bf7a2d3eb84d771e3f1636cb9564ba950b760d0edb3a471ceaf2cc",
+    "dicom_suffix_sha256": "d22f7bd8a640d9acbc9c662f7c41377081ea06d6742a9c3755e9f3bf1e51244e",
+    "original_dicom_sha256": "ee548d56fcea1114f4443b5307d22bc718b9e17caa5691aaac141bfd3ec59ca1",
+    "recovered_dicom_sha256": "ee548d56fcea1114f4443b5307d22bc718b9e17caa5691aaac141bfd3ec59ca1",
+    "serialized_package_sha256": "91eecc537d62bd111ac30941ad17561da160bea8ac57d322b6f3ccfa91ff89ae"
+  },
+  "expected_tags": {
+    "amie_inner_hmac_sha256_hex": "3e720e58a400b5dcc54b4047255c025d5f85aef69ef6e1ee5a1f75a770107fe4",
+    "dicom_outer_hmac_sha256_hex": "24fbec5fc25493eb318d9c9db8ed3809c6993d89bb9bf7cdb41fc3e3724701ff"
+  },
+  "production_nonce_rule": "Fresh, never-reused 128-bit session nonce required",
+  "profile": "AMIE-Native-DICOM-CFP9-v1",
+  "purpose": "Entirely fabricated reproducibility fixture. NEVER clinical input. Key and nonce are PUBLIC TEST MATERIAL.",
+  "receiver_pass_condition": "Go verifies two HMAC tags, recovers DICOM with original_dicom_sha256, and outputs native_dicom_decrypted=true.",
+  "representation": "128x128, single-frame 16-bit allocated/12-bit stored unsigned MONOCHROME2",
+  "serialization": {
+    "ciphertext_encoding": "uint8 row-major C-order bytes",
+    "field_count": 7,
+    "field_count_encoding": "uint16 big-endian",
+    "field_framing": "uint16_be(label_length) || label || uint64_be(payload_length) || payload",
+    "field_order": [
+      "dicom-prefix",
+      "dicom-suffix",
+      "dicom-context",
+      "amie-metadata",
+      "amie-ciphertext",
+      "amie-inner-tag",
+      "dicom-outer-tag"
+    ],
+    "json_canonicalization": "UTF-8 JSON; sort_keys=True; separators=(',', ':'); ensure_ascii=True",
+    "magic_hex": "414d49452d4e41544956452d4449434f4d2d5041434b4147450001"
+  },
+  "synthetic_only": true,
+  "test_vector_version": "AMIE-Native-DICOM-Interop-Vector-CFP9-v2",
+  "validation_key_is_public_test_vector_only": true,
+  "validation_master_key_hex": "9bc6f36fe6d289aeb02ae170dd7f5f60d9fe851a89877fcfebf310795e221619",
+  "validation_session_nonce_hex": "d8a58176fff6420c0edabbcab074a4c8"
+}

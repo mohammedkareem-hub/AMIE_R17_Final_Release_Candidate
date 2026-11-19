@@ -1,0 +1,5 @@
+# Dependency versions validated by the existing synthetic GitHub workflow.
+numpy==2.3.5
+pydicom==3.0.2
+Pillow
+matplotlib

@@ -1,0 +1,6 @@
+# Do not commit any recovered or private medical-image output.
+*.exe
+*.dcm
+*.amiedcm
+*.tmp
+go_recovery_result.json

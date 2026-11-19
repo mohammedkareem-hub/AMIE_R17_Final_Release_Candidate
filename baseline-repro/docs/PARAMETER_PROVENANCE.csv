@@ -1,0 +1,17 @@
+study,parameter,value,evidence_class,qualification
+Kamal 2021,block_size,16,author experimental setting,Paper reports baseline 16; 32/64 used as sensitivity alternatives.
+Kamal 2021,logistic a,3.9,author experimental setting,"3.70, 3.99 used in 5-image sensitivity."
+Kamal 2021,transient N0,1000,author experimental setting,100 and 2000 used in 5-image sensitivity.
+Kamal 2021,PRNG seed,2021,reimplementation-only,Source does not define a reproducible PRNG seed for Ri and r; no author ciphertext match claimed.
+Afzal 2025,logistic alpha,3.99,reimplementation-only inside source range,Tested 3.91/3.95/3.99 in 5-image sensitivity.
+Afzal 2025,logistic x0,0.123456789,reimplementation-only,Tested 0.123456789/0.314159265/0.618033989.
+Afzal 2025,indexed hash material,HK,ambiguous source; reconstruction choice,Paper alternates K and HK; 7 profiles examine ambiguity.
+Afzal 2025,index encoding,underscore_decimal,worked-example interpretation,Alternative raw_u64_be tested.
+Afzal 2025,Fibonacci convention,worked_example,source equation vs example discrepancy,Equation alternative also tested.
+Liu 2026,CML shape,4x4x4,source setting,64 CML nodes.
+Liu 2026,epsilon,0.1,source setting,As identified in source study and implementation.
+Liu 2026,PLM segments/mu,64/4,source setting,1000 warm-up iterations.
+Liu 2026,initial states,public deterministic seed,reimplementation-only,Authors' original 64 secret states not available for ciphertext matching.
+Liu 2026,stream extraction,fixed64_low32,ambiguous source; reconstruction choice,Eight profiles = 2 extraction modes x 4 IT values evaluated with 5 images.
+Liu 2026,IT rounds,3,reimplementation-only choice,IT = 1..4 sensitivity; chosen controlled 100-image profile is IT3.
+Liu 2026,image adaptation,grayscale->RGB + square pad,comparison adaptation,Actual RGB payload is 3.05598x the logical grayscale bytes (100-image aggregate).

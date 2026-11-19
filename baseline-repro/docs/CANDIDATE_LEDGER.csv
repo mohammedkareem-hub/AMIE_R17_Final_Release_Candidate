@@ -1,0 +1,5 @@
+candidate,status,available_evidence,missing_evidence,scientific_caveat
+Kamal 2021,evaluated,5-image sensitivity and conformance,100-image per-image output absent in audited archive,cannot report source-paper ciphertext equivalence
+Afzal 2025,evaluated,5-image parameter and ambiguity sensitivity,100-image per-image output absent in audited archive,paper examples exhibit unresolved contradictions
+Liu 2026,evaluated,100-image controlled adaptation + 8 profile diagnostics,included in prior research-evidence add-on,RGB padding and authentication scope not equivalent
+Historical excluded candidates,UNKNOWN - not documented,no candidate ledger found in examined archive,cannot reconstruct selection retrospectively,do not invent names or exclusion reasons

@@ -1,0 +1,4 @@
+# Stable LF line endings across GitHub Windows, Linux and macOS checkouts
+* text=auto eol=lf
+*.dcm -text
+*.amiedcm -text

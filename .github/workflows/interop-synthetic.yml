@@ -1,0 +1,45 @@
+name: Synthetic-only independent interoperability (unverified on new GitHub repo)
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frozen-vector:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-15-intel]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+      - name: Verify source inventory and frozen synthetic vector (Go recovery)
+        run: python verify_staging.py
+  fresh-vector:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.23'
+      - run: python -m pip install -r requirements-synthetic.txt
+      - name: Regenerate fabricated DICOM package with Python
+        run: python synthetic-public-vector/generate_public_synthetic_vector.py --source-root . --out synthetic-public-vector/generated_ci
+      - name: Verify synthetic byte format and checksums
+        run: python synthetic-public-vector/verify_public_synthetic_vector.py --directory synthetic-public-vector/generated_ci
+      - name: Independent Go decryption
+        working-directory: go-receiver
+        run: go run . -package ../synthetic-public-vector/generated_ci/synthetic_128x128.amiedcm -vector ../synthetic-public-vector/generated_ci/synthetic_128x128_test_vector.json
